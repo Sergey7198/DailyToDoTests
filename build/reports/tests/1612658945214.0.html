@@ -1,0 +1,54 @@
+<html><head>
+	<title>Daily Todo </title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="gICidlFUEY13RtqwADV6Ur0OohVN5qAX53S_PqjseaY">
+	<meta content="text/html; charset=utf-8" http-equiv="content-type">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<link href="/style2.css" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript">
+
+	$(function () {
+	        // set timezone val - if applicable.
+		$ ('#timezone').val (new Date().getTimezoneOffset ());
+	});
+
+	</script>
+
+	
+	<meta name="robots" content="noindex">
+
+</head>
+
+<body>
+
+	<h1><a href="/">DailyTodo.org</a></h1>
+
+	
+    <div class="center narrow">
+	<form action="/edit" method="POST">
+
+	<input type="hidden" name="timezone" value="-120" id="timezone">
+
+
+	Start adding your tasks - one on each line.
+
+
+<!--Add each task on a new line<br>-->
+<br>
+<textarea rows="12" cols="50&quot;" name="tasks"></textarea><br>
+
+<p>
+<input type="submit" class="big" value="Save tasks"> — or — <a href="/" class="red">Cancel</a>
+</p>
+
+</form>
+</div>
+
+
+    <img src="https://ptmlog.appspot.com/1.gif?ref=">
+
+
+</body></html>

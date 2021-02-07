@@ -1,0 +1,272 @@
+<html><head>
+	<title>Daily Todo - 3oe86</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="gICidlFUEY13RtqwADV6Ur0OohVN5qAX53S_PqjseaY">
+	<meta content="text/html; charset=utf-8" http-equiv="content-type">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<link href="/style2.css" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript">
+
+	$(function () {
+	        // set timezone val - if applicable.
+		$ ('#timezone').val (new Date().getTimezoneOffset ());
+	});
+
+	</script>
+
+	
+<meta name="robots" content="noindex">
+<meta http-equiv="refresh" content="3600">
+
+<script type="text/javascript">
+      function allchecked () {
+      };
+
+      function check (element, val) {
+        element.hide ();
+
+        // temporary loader.
+        element.parent ().children ('.loader').show ();
+
+        // get task as plain-text
+        var task = $.trim (element.parent().parent().children ('.text').text ());
+
+        $.get ('/done', {id:'3oe86', task:task, done:val ? 'yes' : 'no', date:'2021-02-07', timezone:new Date().getTimezoneOffset ()}, function () {
+          if (val) {
+            element.parent ().children ('.today').show ();
+            element.parent ().children ('.loader').hide ();
+            allchecked ();
+          }
+
+          else {
+            var f = element.parent ().children ('.check') 
+            f.show ();
+            f.attr ('checked', false);
+
+            element.parent ().children ('.loader').hide ();
+          }
+        });
+      };
+
+      function oldcheck (element, tdate) {
+        element.hide ();
+
+        // temporary loader.
+        element.parent ().children ('.loader').show ();
+
+        // get task as plain-text
+        var task = $.trim (element.parent().parent().children ('.text').text ());
+
+				var val = element.hasClass ('red');
+				var attr = element.attr ('title');
+
+        $.get ('/done', {id:'3oe86', task:task, done:val ? 'yes' : 'no', date:tdate, timezone:new Date().getTimezoneOffset ()}, function () {
+          if (val) {
+            element.addClass ('green');
+            element.removeClass ('red');
+						element.attr ('title', attr.replace ('No', 'Yes'));
+          }
+
+          else {
+            element.addClass ('red');
+            element.removeClass ('green');
+						element.attr ('title', attr.replace ('Yes', 'No'));
+          }
+
+          element.parent ().children ('.loader').hide ();
+       		element.show ();
+        });
+      };
+
+      // attach click/change events.
+      $(function () {
+        $.ajaxSetup ({cache: false});
+
+        $('.check').click (function () {
+          check ($(this), true);
+        });
+
+        $('.today').click (function () {
+          check ($(this), false);
+          return false;
+        });
+
+
+
+	labelwidth = $('.tasktr td:first').width();
+	tablewidth = $('#tasktable').width();
+
+	// start trimming away columns ?
+	// keep doing so till label is at least 50% of total width ?
+	while (labelwidth < 0.5 * tablewidth) {
+		var tdcount = $('tr:first td').length;
+
+		if (tdcount < 5) {
+			break;
+		}
+
+		$('tr:first td:nth-child('+(tdcount-2)+')').remove ();
+		$('.tasktr td:nth-child('+(tdcount-2)+')').remove ();
+
+		labelwidth = $('.tasktr td:first').width();
+		tablewith = $('#tasktable').width();
+		//console.log ('.tasktr td:nth-child('+(tdcount-2)+')');
+		//break;
+	}
+
+
+        $('.older').click (function () {
+					var classes = $(this).parent ().attr ('class').split (/\s+/);
+					var datevar = '';
+
+					$.each (classes, function (index, item) {
+						if (item.substring (0, 1) == 'd') {
+							datevar = item.substring (1);
+						}
+					});
+
+          oldcheck ($(this), datevar);
+
+          return false;
+        });
+
+      });
+</script>
+
+
+</head>
+
+<body>
+
+	<h1><a href="/">DailyTodo.org</a></h1>
+
+	
+<noscript>Please turn on Javascript to use this page.</noscript>
+
+<table id="tasktable">
+<thead>
+	<tr>
+
+	<td id="headline">
+		
+			Tasks for <span title="7 Feb, 11:03">today</span> <a href="?edit=1">Edit</a>
+		
+	</td>
+
+	<td class="date">Today</td>
+	 <td class="date">06_Feb</td>  <td class="date">05_Feb</td>  <td class="date">04_Feb</td>  <td class="date">03_Feb</td>  <td class="date">02_Feb</td>  <td class="date">01_Feb</td> 
+	<td class="date">Older</td>
+
+	<td></td>
+
+	</tr>
+
+</thead>
+
+
+
+
+	<tbody><tr class="t1 tasktr">
+
+	<td id="t1" class="text">
+		Goal Number One
+	</td>
+
+	
+
+	
+		<td class="trend current d2021-02-07">
+
+	
+		
+			<input type="checkbox" class="check" id="check1" title="Check if you've finished this task for today" autocomplete="off" style="display: none;">
+
+			<b class="green today hide td_1" id="today1" title="Yes for today" style="display: inline;">◉</b>
+
+			<img src="/load.gif" class="loader hide" alt="load0" style="display: none;">
+		
+
+	
+
+  </td>
+    
+		<td class="trend  d2021-02-06">
+
+	
+		
+		
+		 <b class="gray td_2" title="N/A on 6 Feb 2021"> ● </b> 
+	
+
+  </td>
+    
+		<td class="trend  d2021-02-05">
+
+	
+		
+		
+		 <b class="gray td_3" title="N/A on 5 Feb 2021"> ● </b> 
+	
+
+  </td>
+    
+		<td class="trend  d2021-02-04">
+
+	
+		
+		
+		 <b class="gray td_4" title="N/A on 4 Feb 2021"> ● </b> 
+	
+
+  </td>
+    
+		<td class="trend  d2021-02-03">
+
+	
+		
+		
+		 <b class="gray td_5" title="N/A on 3 Feb 2021"> ● </b> 
+	
+
+  </td>
+    
+		<td class="trend  d2021-02-02">
+
+	
+		
+		
+		 <b class="gray td_6" title="N/A on 2 Feb 2021"> ● </b> 
+	
+
+  </td>
+    
+		<td class="trend  d2021-02-01">
+
+	
+		
+		
+		 <b class="gray td_7" title="N/A on 1 Feb 2021"> ● </b> 
+	
+
+  </td>
+    
+    <td class="trend more"><a href="/3oe86?t=e56bc">»</a></td>
+</tr>
+ 
+</tbody></table>
+
+
+<p id="msg">
+	<a href="#" onclick="$('#msg').hide (); return false;">Hide</a>
+	<span></span>
+</p>
+
+
+
+    <img src="https://ptmlog.appspot.com/1.gif?ref=">
+
+
+</body></html>

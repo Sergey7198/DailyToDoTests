@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="AllTests">
+    <test name="RegressionTests">
+        <classes>
+            <class name="com.daily.qa.Tests.DailyTodoTest"/>
+        </classes>
+    </test>
+</suite>

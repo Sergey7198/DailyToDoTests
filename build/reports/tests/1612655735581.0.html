@@ -1,0 +1,47 @@
+<html><head>
+	<title>Daily Todo - track your daily tasks !</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="google-site-verification" content="gICidlFUEY13RtqwADV6Ur0OohVN5qAX53S_PqjseaY">
+	<meta content="text/html; charset=utf-8" http-equiv="content-type">
+
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script>
+	<link href="/style2.css" rel="stylesheet" type="text/css">
+
+	<script type="text/javascript">
+
+	$(function () {
+	        // set timezone val - if applicable.
+		$ ('#timezone').val (new Date().getTimezoneOffset ());
+	});
+
+	</script>
+
+	
+</head>
+
+<body>
+
+	<h1><a href="/">DailyTodo.org</a></h1>
+
+	
+  <div id="pitch">
+
+    <p>Daily Todo is a simple tool that lets you to track your daily tasks.</p>
+
+    <div class="center">
+        <img src="/dailytodo-home.png" alt="Daily Todo Screenshot">
+    </div>
+  </div>
+
+  <form id="start" action="/create" method="GET">
+  <input type="submit" value="Create your Daily Todo list" class="bigger" onclick="location.href = '/create'; return false;"><br>
+  <span class="help">No registration or sign-up required</span>
+  </form>
+
+
+
+    <img src="https://ptmlog.appspot.com/1.gif?ref=">
+
+
+</body></html>
