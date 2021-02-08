@@ -9,13 +9,13 @@ To see the result of passed tests - use command "allure serve allure-results" in
 Simple Checklist for DailyTodo.org
 Created by Serhii Zinych
 
-Testcase 1. Check if application is loaded:
+Test case 1. Check if application is loaded:
 	
 	- Test step 1. Go to https://dailytodo.org/;
 
 	Expected Result: Home page of an application should be loaded. Sample image should be displayed."Create your Daily Todo list" button should be displayed and enabled
 
-Testcase 2. Check if the user can create new goals:
+Test case 2. Check if the user can create new goals:
 
 	- Test step 1. Go to https://dailytodo.org/;
 	- Test step 2. Click the "Create your Daily Todo list" 
@@ -26,7 +26,7 @@ Testcase 2. Check if the user can create new goals:
 
 	Expected Result: Newly added goals should be displayed on the page in the table format.
 
-Testcase 3. Check if the user can mark/unmark the goals as done:
+Test case 3. Check if the user can mark/unmark the goals as done:
 
 	- Test step 1. Go to https://dailytodo.org/;
 	- Test step 2. Click the "Create your Daily Todo list" 
@@ -39,7 +39,7 @@ Testcase 3. Check if the user can mark/unmark the goals as done:
 
 	Expected Result: In case of marking goal as done - the system should pass the green color to the checkbox icon. User should be able to mark/unmark the goals an unlimited number of times
 
-Testcsase 4. Check if the user can edit an existing goal:
+Test csase 4. Check if the user can edit an existing goal:
 
 	- Test step 1. Go to https://dailytodo.org/;
 	- Test step 2. Add some goal and save it;
@@ -50,7 +50,7 @@ Testcsase 4. Check if the user can edit an existing goal:
 	Expected Result: After editing and saving an existing goal - it should be displayed on the home page instead of the previous one. 
 
 	
-Testcsase 5. Check that the system doesn't save the edited goal if the user clicked the "Cancel" button:
+Test csase 5. Check that the system doesn't save the edited goal if the user clicked the "Cancel" button:
 	
 	- Test step 1. Go to https://dailytodo.org/;
 	- Test step 2. Add some goal and save it;
@@ -59,4 +59,14 @@ Testcsase 5. Check that the system doesn't save the edited goal if the user clic
 
 	Expected Result: After editing an existing goal and clicking the "Cancel" button - the user should be loaded to the home page and the existing goal should not be changed
 
+Penetration testing :
+
+Test case 1: Check that the user can not pass some XSS through the UI
+
+	- Test step 1. Go to https://dailytodo.org/;
+	- Test step 2. Click the "Create your Daily Todo list" 
+	- Test step 3. Enter some XSS value into the goals field and click to Save;
+	- Test step 4. Assert user is on the Home page
+	
+	Expected Result: System should sanitize all values, which are storing in DB, and front-end should display XSS value as a simple text
 
