@@ -100,12 +100,6 @@ public class HomePage {
     }
 
     public void assertListOfTasksContainsAllAddedTasks(int number) {
-
-        try {
             listOfTasks.shouldHaveSize(number);
-        } catch (Exception e) {
-            System.out.println(e +  "Not equals to");
-        }
-
     }
 }
